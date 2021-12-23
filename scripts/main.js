@@ -38,4 +38,17 @@
       scrollTop.style.opacity = 0;
     }
   };
+  /**
+   * Masonry Grid
+   */
+  var elem = document.querySelector('.grid');
+  if (elem) {
+    imagesLoaded(elem, function () {
+      new Masonry(elem, {
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        horizontalOrder: true
+      });
+    })
+  }
 })();
