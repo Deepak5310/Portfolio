@@ -69,4 +69,23 @@
     )
   }))
 
+  /**
+   * Big Picture Popup for Photo Gallary
+   */
+  document.querySelectorAll(".bp-gallery a").forEach((function (e) {
+    var caption = e.querySelector('figcaption')
+    var img = e.querySelector('img')
+    // set the link present on the item to the caption in full view
+    img.dataset.caption = '<a class="link-light" target="_blank" href="' + e.href + '">' + caption.innerHTML + '</a>';
+    window.console.log(caption)
+    e.addEventListener("click", (function (t) {
+      t.preventDefault();
+      BigPicture({
+        el: t.target,
+        gallery: '.bp-gallery',
+      })
+    })
+    )
+  }))
+
 })();
