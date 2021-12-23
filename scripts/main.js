@@ -19,6 +19,7 @@
       disable: "mobile",
     });
   }
+
   /**
    * Navbar effects and scrolltop buttons upon scrolling
    */
@@ -38,6 +39,7 @@
       scrollTop.style.opacity = 0;
     }
   };
+
   /**
    * Masonry Grid
    */
@@ -51,4 +53,20 @@
       });
     })
   }
+
+  /**
+   * Big Picture Popup for images and videos
+   */
+  document.querySelectorAll("[data-bigpicture]").forEach((function (e) {
+    e.addEventListener("click", (function (t) {
+      t.preventDefault();
+      const data = JSON.parse(e.dataset.bigpicture)
+      BigPicture({
+        el: t.target,
+        ...data
+      })
+    })
+    )
+  }))
+
 })();
